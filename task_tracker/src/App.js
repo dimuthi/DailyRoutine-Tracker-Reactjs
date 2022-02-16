@@ -14,10 +14,17 @@ function App() {
     { id: 2, text: "Cooking", date: "Feb 5th at 2.30pm", reminder: true },
     { id: 3, text: "Reading", date: "Feb 10th at 2.30pm", reminder: false },
   ]);
+
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+    console.log("delete");
+  };
+
   return (
     <div className="container">
       <Header title="Task Tracker" />
-      <Tasks tasks={tasks}/>
+     {tasks.length >0 ? <Tasks tasks={tasks} deleteTask={deleteTask} /> : <p>No tasks to show</p>} 
+     
     </div>
   );
 }
