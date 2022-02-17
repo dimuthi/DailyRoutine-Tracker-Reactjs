@@ -21,6 +21,14 @@ function App() {
     console.log("delete");
   };
 
+  const addTask =(task)=>{
+    //(tasks.concat(task));
+    const id = Math.floor(Math.random()*10000)+1;
+    const newTask = {id, ...task};
+    setTasks([...tasks , newTask]);
+    console.log(task);
+  }
+
   const toggleReminder = (id) => {
     setTasks(
       tasks.map((task) =>
@@ -32,7 +40,7 @@ function App() {
   return (
     <div className="container">
       <Header title="Task Tracker" />
-      <AddTask/>
+      <AddTask onAdd={addTask}/>
       {tasks.length > 0 ? (
         <Tasks
           tasks={tasks}
