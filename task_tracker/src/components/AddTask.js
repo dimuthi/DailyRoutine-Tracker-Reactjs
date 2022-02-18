@@ -1,17 +1,17 @@
 import { useState } from "react";
 
 const AddTask = (props) => {
-  const [task, setTask] = useState("");
+  const [text, setTask] = useState("");
   const [day, setDay] = useState("");
   const [reminder, setReminder] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (!task) {
+    if (!text) {
       alert("Enter a task");
       return;
     }
-    props.onAdd({ task, day, reminder });
+    props.onAdd({ text, day, reminder });
     setTask("");
     setDay("");
     setReminder(false);
@@ -23,7 +23,7 @@ const AddTask = (props) => {
         <input
           type="text"
           placeholder="Enter Task Name"
-          value={task}
+          value={text}
           onChange={(e) => setTask(e.target.value)}
         />
       </div>
