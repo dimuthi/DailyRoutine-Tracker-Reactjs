@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddTask from "./components/AddTask";
 
 function App() {
@@ -9,6 +9,20 @@ function App() {
   const [buttonText, setButtonText] = useState("Add");
   const [tasks, setTasks] = useState([]);
 
+  const getTasks = async () => {
+    const res = await fetch("http://localhost:5000/tasks/");
+    const data = await res.json();
+    console.log(data);
+    return data;
+  };
+
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const taskFromServer = await getTasks();
+      setTasks(taskFromServer);
+    };
+    fetchTasks();
+  }, []);
   const showForm = () => {
     setShowAddTask(!showAddTask);
     //  if(!showAddTask) {
