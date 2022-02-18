@@ -23,21 +23,30 @@ function App() {
     };
     fetchTasks();
   }, []);
+
   const showForm = () => {
     setShowAddTask(!showAddTask);
     //  if(!showAddTask) {
     //   setButtonText(text);
     // }
   };
-  const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
+
+  const deleteTask = async (id) => {
+    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+      method: "DELETE",
+    });
+    res.status === 200
+      ? setTasks(tasks.filter((task) => task.id !== id))
+      : alert("Error Deleting This Task");
     console.log("delete");
   };
+ 
   // const changeButton = () => {
   //   if(!showAddTask) {
   //     setButtonText("Cancel");
   //   }
   // }
+
   const addTask = (task) => {
     //(tasks.concat(task));
     const id = Math.floor(Math.random() * 10000) + 1;
