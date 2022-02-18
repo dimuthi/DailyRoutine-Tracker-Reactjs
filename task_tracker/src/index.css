@@ -35,7 +35,7 @@ body {
 
 .btn {
   display: inline-block;
-  background: rgb(31, 28, 211);
+  background: rgb(0, 0, 0);
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -68,7 +68,7 @@ body {
 }
 
 .task.reminder {
-  border-left: 5px solid rgb(207, 68, 33);
+  border-left: 5px solid rgb(231, 228, 15);
 }
 
 .task h3 {
