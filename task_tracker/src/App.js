@@ -5,42 +5,32 @@ import { useState } from "react";
 import AddTask from "./components/AddTask";
 
 function App() {
-  const[showAddTask, setShowAddTask] = useState(false);
-  const[buttonText, setButtonText] = useState("Add");
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      text: "Doctor Appoinment",
-      date: "Feb 5th at 2.30pm",
-      reminder: true,
-    },
-    { id: 2, text: "Cooking", date: "Feb 5th at 2.30pm", reminder: true },
-    { id: 3, text: "Reading", date: "Feb 10th at 2.30pm", reminder: false },
-  ]);
+  const [showAddTask, setShowAddTask] = useState(false);
+  const [buttonText, setButtonText] = useState("Add");
+  const [tasks, setTasks] = useState([]);
 
-const showForm = () =>{
-  setShowAddTask(!showAddTask);
-  //  if(!showAddTask) {
-  //   setButtonText(text);
-  // } 
-  
-}
+  const showForm = () => {
+    setShowAddTask(!showAddTask);
+    //  if(!showAddTask) {
+    //   setButtonText(text);
+    // }
+  };
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
     console.log("delete");
   };
-// const changeButton = () => {
-//   if(!showAddTask) {
-//     setButtonText("Cancel");
-//   } 
-// }
-  const addTask =(task)=>{
+  // const changeButton = () => {
+  //   if(!showAddTask) {
+  //     setButtonText("Cancel");
+  //   }
+  // }
+  const addTask = (task) => {
     //(tasks.concat(task));
-    const id = Math.floor(Math.random()*10000)+1;
-    const newTask = {id, ...task};
-    setTasks([...tasks , newTask]);
+    const id = Math.floor(Math.random() * 10000) + 1;
+    const newTask = { id, ...task };
+    setTasks([...tasks, newTask]);
     console.log(task);
-  }
+  };
 
   const toggleReminder = (id) => {
     setTasks(
@@ -53,7 +43,7 @@ const showForm = () =>{
   return (
     <div className="container">
       <Header title="Task Tracker" onShow={showForm} buttonText={showAddTask} />
-     {showAddTask && <AddTask onAdd={addTask}/>} 
+      {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? (
         <Tasks
           tasks={tasks}
