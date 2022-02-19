@@ -1,4 +1,4 @@
-# Task-Tracker-Reactjs
+# DailyRoutine-Tracker-Reactjs
 This is a web application to manage the daily activities. Developed using ReactJS and JSON server
 
 Functionalitis
