@@ -19,6 +19,7 @@ Used ReactJS concepts
 
 User Interfaces
 ----------------
-![image](https://user-images.githubusercontent.com/32828462/154793564-b5801856-540e-4000-aa41-aa503fd102ff.png)
+![image](https://user-images.githubusercontent.com/32828462/154793594-b0316ed4-d8a8-481f-b7ba-23a454342cb5.png)
+
 
 
