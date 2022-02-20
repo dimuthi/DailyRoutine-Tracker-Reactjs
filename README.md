@@ -19,8 +19,8 @@ Used ReactJS concepts
 
 Setup
 ------
-Front-end : npm start
-Backend JSON-server : npm run server
+1. Front-end : npm start
+2. Backend JSON-server : npm run server
 
 User Interfaces
 ----------------
